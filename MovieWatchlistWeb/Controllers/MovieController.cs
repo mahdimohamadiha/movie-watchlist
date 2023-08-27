@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieWatchlistWeb.Data;
+using MovieWatchlistWeb.Models;
 
 namespace MovieWatchlistWeb.Controllers
 {
@@ -14,8 +15,8 @@ namespace MovieWatchlistWeb.Controllers
 
         public IActionResult Index()
         {
-            var objMovieList = _db.Movies.ToList();
-            return View();
+            IEnumerable<Movie> objMovieList = _db.Movies;
+            return View(objMovieList);
         }
     }
 }
