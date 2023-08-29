@@ -31,9 +31,13 @@ namespace MovieWatchlistWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Movie obj)
         {
-            _db.Movies.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Movies.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
     }
 }
