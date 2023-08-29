@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieWatchlistWeb.Data;
 using MovieWatchlistWeb.Models;
+using System.ComponentModel;
 
 namespace MovieWatchlistWeb.Controllers
 {
@@ -23,6 +24,16 @@ namespace MovieWatchlistWeb.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Movie obj)
+        {
+            _db.Movies.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
