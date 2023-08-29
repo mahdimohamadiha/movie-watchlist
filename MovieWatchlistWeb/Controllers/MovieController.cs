@@ -18,5 +18,11 @@ namespace MovieWatchlistWeb.Controllers
             IEnumerable<Movie> objMovieList = _db.Movies;
             return View(objMovieList);
         }
+
+        //GET
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
