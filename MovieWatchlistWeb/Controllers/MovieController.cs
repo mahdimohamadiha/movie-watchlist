@@ -39,5 +39,36 @@ namespace MovieWatchlistWeb.Controllers
             }
             return View(obj);
         }
-    }
+
+		//GET
+		public IActionResult Edit(int? id)
+		{
+            if (id == null || id == 0) 
+            {
+                return NotFound();
+            }
+            var movieFromDb = _db.Movies.Find(id);
+
+            if (movieFromDb == null)
+            {
+                return NotFound();
+            }
+
+			return View(movieFromDb);
+		}
+
+		//POST
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult Edit(Movie obj)
+		{
+			if (ModelState.IsValid)
+			{
+				_db.Movies.Add(obj);
+				_db.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			return View(obj);
+		}
+	}
 }
