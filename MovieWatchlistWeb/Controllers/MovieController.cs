@@ -35,7 +35,7 @@ namespace MovieWatchlistWeb.Controllers
             {
                 _db.Movies.Add(obj);
                 _db.SaveChanges();
-				TempData["success"] = "Category created successfully";
+				TempData["success"] = "Movie created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -67,7 +67,7 @@ namespace MovieWatchlistWeb.Controllers
 			{
 				_db.Movies.Update(obj);
 				_db.SaveChanges();
-                TempData["success"] = "Category updated successfully";
+                TempData["success"] = "Movie updated successfully";
                 return RedirectToAction("Index");
 			}
 			return View(obj);
@@ -102,7 +102,7 @@ namespace MovieWatchlistWeb.Controllers
 			}
 			_db.Movies.Remove(obj);
 			_db.SaveChanges();
-            TempData["success"] = "Category deleted successfully";
+            TempData["success"] = "Movie deleted successfully";
             return RedirectToAction("Index");
 		}
 	}
