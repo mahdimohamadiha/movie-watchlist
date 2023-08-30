@@ -70,5 +70,37 @@ namespace MovieWatchlistWeb.Controllers
 			}
 			return View(obj);
 		}
+
+		//GET
+		public IActionResult Delete(int? id)
+		{
+			if (id == null || id == 0)
+			{
+				return NotFound();
+			}
+			var movieFromDb = _db.Movies.Find(id);
+
+			if (movieFromDb == null)
+			{
+				return NotFound();
+			}
+
+			return View(movieFromDb);
+		}
+
+		//POST
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+		public IActionResult DeletePOST(int? id)
+		{
+			var obj = _db.Movies.Find(id);
+			if (obj == null)
+			{
+				return NotFound();
+			}
+			_db.Movies.Remove(obj);
+			_db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
