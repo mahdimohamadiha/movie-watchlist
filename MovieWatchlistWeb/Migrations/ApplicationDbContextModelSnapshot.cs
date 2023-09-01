@@ -41,6 +41,9 @@ namespace MovieWatchlistWeb.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Watched")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Movies");

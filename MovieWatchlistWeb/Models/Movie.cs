@@ -10,5 +10,11 @@ namespace MovieWatchlistWeb.Models
         public string Name { get; set; }
         public string Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public bool Watched { get; set; }
+
+        public Movie()
+        {
+            Watched = false;
+        }
     }
 }

@@ -20,3 +20,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer {
+    flex-shrink: 0;
+}

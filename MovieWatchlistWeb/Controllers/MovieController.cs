@@ -105,5 +105,5 @@ namespace MovieWatchlistWeb.Controllers
             TempData["success"] = "Movie deleted successfully";
             return RedirectToAction("Index");
 		}
-	}
+    }
 }

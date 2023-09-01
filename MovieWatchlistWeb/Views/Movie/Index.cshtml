@@ -27,7 +27,10 @@
                 Genre
             </th>
             <th>
-
+                Release Date
+            </th>
+            <th>
+                
             </th>
         </tr>
     </thead>
@@ -35,11 +38,14 @@
         @foreach(var obj in Model)
         {
             <tr>
-                <td width="50%">
+                <td width="20%">
                     @obj.Name
                 </td>
-                <td width="30%">
+                <td width="20%">
                     @obj.Genre
+                </td>
+                <td width="20%">
+                    @obj.ReleaseDate
                 </td>
                 <td>
                     <div class="w-75 btn-group" role="group">
@@ -49,7 +55,14 @@
                         <a asp-controller="Movie" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
                             <i class="bi bi-trash-fill"></i> Delete
                         </a>
+                        @if (@obj.Watched)
+                        {
+                            <div class="text-center">
+                                <span class="badge bg-success mx-2 mt-2 ">Watched</span>
+                            </div>
+                        }
                     </div>
+
                 </td>
             </tr>
         }

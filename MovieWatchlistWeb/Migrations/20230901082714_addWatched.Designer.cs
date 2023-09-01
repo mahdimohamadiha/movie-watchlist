@@ -12,8 +12,8 @@ using MovieWatchlistWeb.Data;
 namespace MovieWatchlistWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230826070146_AddMovieToDatabase")]
-    partial class AddMovieToDatabase
+    [Migration("20230901082714_addWatched")]
+    partial class addWatched
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,9 @@ namespace MovieWatchlistWeb.Migrations
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Watched")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
