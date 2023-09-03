@@ -1,6 +1,6 @@
 # Description
 
-A simple application to list the movies we want to watch later
+A simple application with .NET Core MVC to list the movies we want to watch later
 
 This site has the ability to make the movies we saw as "Watched".
 
@@ -8,4 +8,4 @@ We can enter "Name" and "Genre" and "Release Date" information to create movie l
 
 # Picture
 
-<img src="pic.png" alt="pic1" width="800">
+<img src="pic.png" alt="picture" width="800">
